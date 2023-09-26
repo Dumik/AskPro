@@ -14,6 +14,7 @@ import {
   Container,
   InnerView,
 } from './TabBarStyles';
+import {theme} from '../utils';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -88,8 +89,8 @@ const TabBar = ({state, descriptors, navigation, tabs}: Props) => {
               key={`${index}--${route.key}`}>
               <InnerView>
                 {renderIcon({
-                  color: isFocused ? '#345567' : '#009900',
-                  size: 35,
+                  color: theme.colors.black,
+                  size: 25,
                   focused: isFocused,
                 })}
               </InnerView>
