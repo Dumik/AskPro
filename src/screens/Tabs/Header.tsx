@@ -6,9 +6,10 @@ import {Pressable} from 'react-native';
 type HeaderType = {
   isGoBack?: boolean;
   title?: string;
+  position?: 'absolute' | 'relative' | undefined;
 };
 
-export const Header = ({isGoBack, title}: HeaderType) => {
+export const Header = ({isGoBack, title, position}: HeaderType) => {
   return (
     <Box
       flexDirection="row"
@@ -17,7 +18,7 @@ export const Header = ({isGoBack, title}: HeaderType) => {
       backgroundColor="primary"
       height={100}
       width="100%"
-      style={{position: 'absolute', top: 0}}>
+      style={{position: position, top: 0}}>
       <Box
         flexDirection="row"
         paddingHorizontal={16}

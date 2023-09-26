@@ -1,122 +1,54 @@
 import React, {FC} from 'react';
 
-import {Text, Box, Button} from '../../legos';
+import {Box, Button, ScrollView} from '../../legos';
 import {Header} from './Header';
-import {Image, ImageBackground} from 'react-native';
 import {ScreenProps} from '../types';
+import {Post} from '../../components/Post';
+import {ProfileStatistic} from '../../components/ProfileStatistic';
+import {HeroProfile} from '../../components/HeroProfile';
 
 export const ProfileScreen: FC<ScreenProps> = () => {
   return (
     <Box height="100%" backgroundColor="white">
-      <Header title="Profile" />
-      <Box marginTop={100} height={250}>
-        <ImageBackground
-          source={{uri: 'https://picsum.photos/id/258/500/900'}}
-          style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            justifyContent: 'flex-end',
-          }}>
-          <Box
-            style={{position: 'relative'}}
-            flexDirection="row"
-            justifyContent="space-between">
-            <Image
-              source={{uri: 'https://picsum.photos/id/200/150'}}
-              style={{
-                left: 10,
-                bottom: -60,
-                width: 120,
-                height: 120,
-                borderRadius: 100,
-                position: 'absolute',
-              }}
-            />
-            <Box marginLeft={180} justifyContent="flex-end">
-              <Text
-                fontSize={20}
-                fontWeight={700}
-                style={{paddingTop: 10}}
-                color="white">
-                Oleg
-              </Text>
-              <Text fontSize={18} fontWeight={400} style={{paddingVertical: 5}}>
-                @dumik
-              </Text>
-            </Box>
-          </Box>
-        </ImageBackground>
-      </Box>
-      <Box width={'100%'} height={70} justifyContent="center">
-        <Box
-          width={150}
-          height={30}
-          marginLeft={150}
-          borderStyle="solid"
-          borderColor="gray"
-          borderWidth={1}
-          flexDirection="row"
-          justifyContent="center"
-          alignItems="center"
-          backgroundColor="grayLight">
-          <Text fontSize={16}>Followers:</Text>
-          <Text fontWeight={700}>134</Text>
-        </Box>
-      </Box>
-      <Box
-        borderStyle="solid"
-        borderColor="grayLight"
-        borderTopWidth={2}
-        borderBottomWidth={2}
-        flexDirection="row"
-        justifyContent="space-around"
-        alignItems="center"
-        paddingHorizontal={16}
-        height={80}>
-        <Box alignItems="center">
-          <Text fontSize={18} fontWeight={700}>
-            168
-          </Text>
-          <Text fontWeight={400} color="blue">
-            answers
-          </Text>
-        </Box>
-        <Box
-          borderColor="grayLight"
-          borderStyle="solid"
-          borderLeftWidth={2}
-          height={40}
-        />
-        <Box alignItems="center">
-          <Text fontSize={18} fontWeight={700}>
-            582
-          </Text>
-          <Text fontWeight={400} color="blue">
-            likes
-          </Text>
-        </Box>
-        <Box
-          borderColor="grayLight"
-          borderStyle="solid"
-          borderRightWidth={2}
-          height={40}
+      <ScrollView
+        stickyHeaderIndices={[0]}
+        showsVerticalScrollIndicator={false}>
+        <Header title="Profile" />
+        <HeroProfile
+          avatarURL="https://picsum.photos/id/258/500/900"
+          backgroundURL="https://picsum.photos/id/200/150"
+          name="Oleg"
+          username="@dumik"
         />
 
-        <Box alignItems="center">
-          <Text fontSize={18} fontWeight={700}>
-            0
-          </Text>
-          <Text fontWeight={400} color="blue">
-            gifts
-          </Text>
+        <ProfileStatistic answers={168} likes={582} gifts={20} followers={56} />
+        <Box width="100%" alignItems="center" paddingTop={24}>
+          <Box width="80%">
+            <Button title="Ask me a Question" onPress={() => {}} />
+          </Box>
         </Box>
-      </Box>
-      <Box width="100%" alignItems="center" paddingTop={24}>
-        <Box width="80%">
-          <Button title="Ask me a Question" onPress={() => {}} />
-        </Box>
-      </Box>
+        <Post
+          answer="Что тебя неизменно радует?"
+          response="Всё, что происходит сейчас, когда-нибудь пройдет. Любые жизненные катаклизмы, омрачающие сегодняшний день, когда-нибудь останутся только блеклым воспоминанием в пучине нашей памяти. Катастрофа сегодня — жизненный опыт завтра. Эмоции утихнут, боль пройдет, пустота заполнится. Мы всегда найдем выход из ситуации, какой бы сложной она не была. Мы так устроены. Так устроена наша психика — искать свет среди тьмы. Мы, как цветы, тянемся к солнцу. Верим в лучшее, часто без всяких на то оснований, и живем, неизменно живем…
+Этот свет внутри нас, эта яркая искра, тлеющая даже в самые темные времена, — свидетельство того, что мы созданы для чего-то незыблемого и вечного, для необъятного счастья. Ты понимаешь это, как, наверное, и каждый из нас, хоть иногда и боишься себе в этом признаться. Думаешь, это слишком грандиозно, слишком прекрасно, чтобы быть правдой. Боишься вопросов и еще больше ответов на них. Но они есть. И они всё объясняют. С необычайной точностью и естественностью, оставляя страх и сомнения позади. Даря радость и уверенность в будущем, смысл сегодняшнему дню.
+…Впереди прекрасное время — время, когда люди «насладятся обилием мира» и «дети, которые у них родятся, не будут страдать». Когда «немой будет радостно восклицать», а «хромой будет скакать, как олень». Когда никто из живущих «не будет трудиться напрасно». Время, когда «то, что было прежде, больше не вспомнится и не будет тяготить сердце»."
+          likes={10}
+          date="2017-01-01T00:00:00"
+        />
+        <Post
+          answer="Что тебя неизменно радует?"
+          response="Всё, что происходит сейчВсё,  что происходит сейчВсё, что происходит сейчас, когда-нибудь пройдет. ас, когда-нибудь пройдет. Любые жизненные катаклизмы, омрачающие сегодняшний день, когда-нибудь останутся только блеклым воспоминанием в пучине нашей памяти. Катастрофа сегодня — жизненный опыт завтра"
+          likes={10}
+          date="2017-01-01T00:00:00"
+        />
+
+        <Post
+          answer="12Что тебя неизменно радует?"
+          response="Всё, что происходит сейчас, когда-нибудь пройдет. ас, когда-нибудь пройдет. Любые жизненные катаклизмы, омрачающие сегодняшний день, когда-нибудь останутся только блеклым воспоминанием в пучине нашей памяти. Катастрофа сегодня1 — жизненный опыт завтра."
+          likes={10}
+          date="2017-01-01T00:00:00"
+        />
+      </ScrollView>
     </Box>
   );
 };
