@@ -4,7 +4,6 @@ import React, {Fragment, useEffect} from 'react';
 import {Platform, StatusBar} from 'react-native';
 
 import SplashScreen from 'react-native-splash-screen';
-// import { Root } from './src/navigation/Root';
 
 function App() {
   useEffect(() => SplashScreen?.hide(), []);

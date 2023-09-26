@@ -1,26 +1,18 @@
 import React, {FC} from 'react';
 
-import {Text, Box, Logo} from '../../legos';
-import { RootStackParamList } from 'navigation';
-import { StackNavigationProp } from '@react-navigation/stack';
+import {Text, Box} from '../../legos';
+import {Header} from './Header';
+import {ScreenProps} from '../types';
 
-type ScreenNavigationProp = StackNavigationProp<RootStackParamList>;
-
-interface ScreenProps {
-  navigation: ScreenNavigationProp;
-}
-
-
-export const QuestionsScreen: FC<ScreenProps> = ({navigation}) => {
+export const QuestionsScreen: FC<ScreenProps> = () => {
   return (
     <Box
       alignItems="center"
       justifyContent="center"
       height="100%"
-      backgroundColor="mainBlue">
-      <Box marginBottom={100}>
-        <Logo color="white" />
-      </Box>
+      backgroundColor="white">
+      <Header title="Questions" />
+
       <Box>
         <Text>Questions SCREEN</Text>
       </Box>

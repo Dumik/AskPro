@@ -1,5 +1,4 @@
-import React from 'react';
-import {ParamListBase, RouteProp} from '@react-navigation/native';
+import React, {FC} from 'react';
 import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
@@ -13,19 +12,76 @@ import {
   ProfileScreen,
   QuestionsScreen,
 } from '../screens';
-import {Box, QuestionsIcon, HomeIcon, FriendsIcon, ProfileIcon} from '../legos';
+import {QuestionsIcon, HomeIcon, FriendsIcon, ProfileIcon} from '../legos';
 import {theme} from '../utils';
+import TabBar from './TabBar';
+import {ScreenProps} from '../screens/types';
+
+type IconTabsProps = {
+  focused?: boolean;
+  color?: string;
+  size?: number;
+};
+
+export type TabsProps = {
+  name: string;
+  label: string;
+  component: FC<ScreenProps>;
+  tabBarIcon: any;
+};
+
+const tabs: TabsProps[] = [
+  {
+    name: Screens.Home,
+    label: 'Home',
+    component: HomeScreen,
+    tabBarIcon: ({size, focused}: IconTabsProps) => (
+      <HomeIcon
+        color={focused ? theme.colors.mainBlue : theme.colors.grayDark}
+        size={size}
+      />
+    ),
+  },
+  {
+    name: Screens.Questions,
+    label: 'Questions',
+    component: QuestionsScreen,
+    tabBarIcon: ({size, focused}: IconTabsProps) => (
+      <QuestionsIcon
+        color={focused ? theme.colors.mainBlue : theme.colors.grayDark}
+        size={size}
+      />
+    ),
+  },
+  {
+    name: Screens.Friends,
+    label: 'Friends',
+    component: FriendsScreen,
+    tabBarIcon: ({size, focused}: IconTabsProps) => (
+      <FriendsIcon
+        color={focused ? theme.colors.mainBlue : theme.colors.grayDark}
+        size={size}
+      />
+    ),
+  },
+  {
+    name: Screens.Profile,
+    label: 'Profile',
+    component: ProfileScreen,
+    tabBarIcon: ({size, focused}: IconTabsProps) => (
+      <ProfileIcon
+        color={focused ? theme.colors.mainBlue : theme.colors.grayDark}
+        size={size}
+      />
+    ),
+  },
+];
 
 const Tab = createBottomTabNavigator();
 
 export const Tabs = () => {
-  const screenOptions = ({
-    route,
-  }: {
-    route: RouteProp<ParamListBase, string>;
-  }): BottomTabNavigationOptions => {
+  const screenOptions = (): BottomTabNavigationOptions => {
     return {
-      tabBarIcon: () => <Box paddingTop={19}>l</Box>,
       title: 'My home',
       tabBarShowLabel: false,
       headerShown: false,
@@ -33,8 +89,7 @@ export const Tabs = () => {
         paddingTop: 15,
         top: 0,
         backgroundColor: '#f7f7f7',
-        height: 100,
-        borderColor: '#274C67',
+        height: 80,
       },
 
       tabBarItemStyle: {
@@ -44,68 +99,29 @@ export const Tabs = () => {
   };
 
   return (
-    <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen
-        name={Screens.Home}
-        component={HomeScreen}
-        options={{
-          tabBarShowLabel: false,
-          headerTitle: () => 'title',
-          tabBarLabel: 'Home',
-          headerShown: false,
-          tabBarIcon: ({color, size, focused}) => (
-            <HomeIcon
-              color={focused ? '#274C67' : theme.colors.grayDark}
-              size={size}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name={Screens.Questions}
-        component={QuestionsScreen}
-        options={{
-          tabBarShowLabel: false,
-          headerShown: true,
-          tabBarLabel: 'Home',
-          tabBarIcon: ({color, size, focused}) => (
-            <QuestionsIcon
-              color={focused ? '#274C67' : theme.colors.grayDark}
-              size={size}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name={Screens.Friends}
-        component={FriendsScreen}
-        options={{
-          tabBarShowLabel: false,
-          headerShown: false,
-          tabBarLabel: 'Home',
-          tabBarIcon: ({color, size, focused}) => (
-            <FriendsIcon
-              color={focused ? '#274C67' : theme.colors.grayDark}
-              size={size}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name={Screens.Profile}
-        component={ProfileScreen}
-        options={{
-          tabBarShowLabel: false,
-          headerShown: false,
-          tabBarLabel: 'Home',
-          tabBarIcon: ({color, size, focused}) => (
-            <ProfileIcon
-              color={focused ? '#274C67' : theme.colors.grayDark}
-              size={size}
-            />
-          ),
-        }}
-      />
+    <Tab.Navigator
+      screenOptions={screenOptions}
+      tabBar={props => <TabBar {...props} tabs={tabs} />}>
+      {tabs.map(({name, component, label}, index) => {
+        return (
+          <Tab.Screen
+            key={index}
+            name={name}
+            component={component}
+            options={{
+              tabBarLabel: label,
+              tabBarIcon: ({size, focused}) => (
+                <HomeIcon
+                  color={
+                    focused ? theme.colors.mainBlue : theme.colors.grayDark
+                  }
+                  size={size}
+                />
+              ),
+            }}
+          />
+        );
+      })}
     </Tab.Navigator>
   );
 };

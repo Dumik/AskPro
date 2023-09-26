@@ -1,23 +1,16 @@
-import React, { FC } from 'react';
-import { Text, Box } from '../../legos';
-import { Header } from './Header';
-import { StackNavigationProp } from '@react-navigation/stack'; // Import the appropriate type
-import { RootStackParamList } from 'navigation';
+import React, {FC} from 'react';
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList>;
+import {Text, Box} from '../../legos';
+import {Header} from './Header';
+import {ScreenProps} from '../types';
 
-interface HomeScreenProps {
-  navigation: HomeScreenNavigationProp;
-}
-
-export const HomeScreen: FC<HomeScreenProps> = ({ navigation }) => {
+export const HomeScreen: FC<ScreenProps> = () => {
   return (
     <Box
       alignItems="center"
       justifyContent="center"
       height="100%"
-      backgroundColor="white"
-    >
+      backgroundColor="white">
       <Header />
       <Box>
         <Text>HOME SCREEN</Text>

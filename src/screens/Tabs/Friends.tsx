@@ -1,25 +1,17 @@
 import React, {FC} from 'react';
 
-import {Text, Box, Logo} from '../../legos';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'navigation';
+import {Text, Box} from '../../legos';
+import {Header} from './Header';
+import {ScreenProps} from '../types';
 
-type ScreenNavigationProp = StackNavigationProp<RootStackParamList>;
-
-interface ScreenProps {
-  navigation: ScreenNavigationProp;
-}
-
-export const FriendsScreen: FC<ScreenProps> = ({navigation}) => {
+export const FriendsScreen: FC<ScreenProps> = () => {
   return (
     <Box
       alignItems="center"
       justifyContent="center"
       height="100%"
-      backgroundColor="mainBlue">
-      <Box marginBottom={100}>
-        <Logo color="white" />
-      </Box>
+      backgroundColor="white">
+      <Header title="Friends" />
       <Box>
         <Text>Friends SCREEN</Text>
       </Box>

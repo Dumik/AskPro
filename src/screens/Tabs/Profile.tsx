@@ -3,16 +3,9 @@ import React, {FC} from 'react';
 import {Text, Box, Button} from '../../legos';
 import {Header} from './Header';
 import {Image, ImageBackground} from 'react-native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from 'navigation';
+import {ScreenProps} from '../types';
 
-type ScreenNavigationProp = StackNavigationProp<RootStackParamList>;
-
-interface ScreenProps {
-  navigation: ScreenNavigationProp;
-}
-
-export const ProfileScreen: FC<ScreenProps> = ({navigation}) => {
+export const ProfileScreen: FC<ScreenProps> = () => {
   return (
     <Box height="100%" backgroundColor="white">
       <Header title="Profile" />
@@ -38,7 +31,8 @@ export const ProfileScreen: FC<ScreenProps> = ({navigation}) => {
                 height: 120,
                 borderRadius: 100,
                 position: 'absolute',
-              }}></Image>
+              }}
+            />
             <Box marginLeft={180} justifyContent="flex-end">
               <Text
                 fontSize={20}
@@ -92,7 +86,8 @@ export const ProfileScreen: FC<ScreenProps> = ({navigation}) => {
           borderColor="grayLight"
           borderStyle="solid"
           borderLeftWidth={2}
-          height={40}></Box>
+          height={40}
+        />
         <Box alignItems="center">
           <Text fontSize={18} fontWeight={700}>
             582
@@ -105,7 +100,8 @@ export const ProfileScreen: FC<ScreenProps> = ({navigation}) => {
           borderColor="grayLight"
           borderStyle="solid"
           borderRightWidth={2}
-          height={40}></Box>
+          height={40}
+        />
 
         <Box alignItems="center">
           <Text fontSize={18} fontWeight={700}>
