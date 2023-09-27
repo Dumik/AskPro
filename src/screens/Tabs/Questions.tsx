@@ -11,7 +11,7 @@ export const QuestionsScreen: FC<ScreenProps> = () => {
       justifyContent="center"
       height="100%"
       backgroundColor="white">
-      <Header title="Questions" />
+      <Header title="Questions" position="absolute" />
 
       <Box>
         <Text>Questions SCREEN</Text>

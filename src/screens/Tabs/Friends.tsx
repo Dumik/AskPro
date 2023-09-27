@@ -11,7 +11,7 @@ export const FriendsScreen: FC<ScreenProps> = () => {
       justifyContent="center"
       height="100%"
       backgroundColor="white">
-      <Header title="Friends" />
+      <Header title="Friends" position="absolute" />
       <Box>
         <Text>Friends SCREEN</Text>
       </Box>

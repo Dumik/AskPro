@@ -11,7 +11,7 @@ export const HomeScreen: FC<ScreenProps> = () => {
       justifyContent="center"
       height="100%"
       backgroundColor="white">
-      <Header title="Home" />
+      <Header title="Home" position="absolute" />
       <Box>
         <Text>HOME SCREEN</Text>
       </Box>

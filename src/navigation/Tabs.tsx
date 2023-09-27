@@ -110,14 +110,6 @@ export const Tabs = () => {
             component={component}
             options={{
               tabBarLabel: label,
-              tabBarIcon: ({size, focused}) => (
-                <HomeIcon
-                  color={
-                    focused ? theme.colors.mainBlue : theme.colors.grayDark
-                  }
-                  size={size}
-                />
-              ),
             }}
           />
         );

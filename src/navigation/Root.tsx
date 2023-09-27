@@ -18,9 +18,12 @@ export const Root = () => {
     return true;
   };
 
+  const isLogin = true;
+
   return (
     <NavigationContainer ref={navigationRef} onReady={navigationReadyCallback}>
-      <RootStack.Navigator initialRouteName={Screens.Starting}>
+      <RootStack.Navigator
+        initialRouteName={isLogin ? Screens.Tabs : Screens.Starting}>
         <RootStack.Group>
           <RootStack.Screen
             component={Tabs}
