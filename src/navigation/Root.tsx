@@ -8,6 +8,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {StartingScreen, SignInScreen, SignUpScreen} from '../screens';
 import {Tabs} from './Tabs';
 import {RootStackParamList, Screens} from './types';
+import {useAppSelector} from '../app/hooks';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
@@ -18,7 +19,7 @@ export const Root = () => {
     return true;
   };
 
-  const isLogin = true;
+  const isLogin = useAppSelector(state => state.auth.value);
 
   return (
     <NavigationContainer ref={navigationRef} onReady={navigationReadyCallback}>

@@ -6,14 +6,23 @@ import {ScreenProps} from '../types';
 import {Post} from '../../components/Post/Post';
 import {ProfileStatistic} from '../../components/ProfileStatistic';
 import {HeroProfile} from '../../components/HeroProfile';
+import {useAppDispatch} from '../../app/hooks';
+import {Screens} from '../../navigation';
+import {logout} from '../../features/auth/authSlice';
 
-export const ProfileScreen: FC<ScreenProps> = () => {
+export const ProfileScreen: FC<ScreenProps> = ({navigation}) => {
+  const dispatch = useAppDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+    navigation.navigate(Screens.SignIn);
+  };
+
   return (
     <Box height="100%" width={'100%'} backgroundColor="white">
       <ScrollView
         stickyHeaderIndices={[0]}
         showsVerticalScrollIndicator={false}>
-        <Header title="Profile" />
+        <Header title="Profile" handleLogout={handleLogout} />
         <HeroProfile
           avatarURL="https://picsum.photos/id/258/500/900"
           backgroundURL="https://picsum.photos/id/200/150"

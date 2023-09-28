@@ -2,10 +2,13 @@ import {Text} from 'react-native';
 import React, {FC} from 'react';
 
 import {Screens, RootStackParamList} from '../navigation';
-import {Box, Button, Input, ScrollView, Logo, TextError} from '../legos';
+import {Box, Button, Input, ScrollView, Logo} from '../legos';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {useAppDispatch} from '../app/hooks';
+import {login} from '../features/auth/authSlice';
+import auth from '@react-native-firebase/auth';
 
 const validationSchema = Yup.object().shape({
   login: Yup.string()
@@ -29,14 +32,17 @@ interface ScreenProps {
 }
 
 export const SignInScreen: FC<ScreenProps> = ({navigation}) => {
-  const onSubmit = ({
+  const dispatch = useAppDispatch();
+
+  const onSubmit = async ({
     login: username,
     password,
   }: {
     login: string;
     password: string;
   }) => {
-    navigation.navigate(Screens.Tabs);
+    await dispatch(login());
+    await navigation.navigate(Screens.Tabs);
   };
 
   return (
