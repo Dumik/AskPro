@@ -25,6 +25,7 @@ export const users: User[] = [
     ],
     posts: [
       {
+        id: '2',
         question: {
           question: 'question',
           author: 'Oleg',
@@ -63,6 +64,8 @@ export const users: User[] = [
     ],
     posts: [
       {
+        id: '2',
+
         question: {
           question: 'question',
           author: 'Oleg',
@@ -101,6 +104,8 @@ export const users: User[] = [
     ],
     posts: [
       {
+        id: '2',
+
         question: {
           question: 'question',
           author: 'Oleg',

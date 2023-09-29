@@ -19,13 +19,6 @@ export interface Follower {
   avatar: string;
 }
 
-// export interface Answer {
-//   question: string;
-//   answer: string;
-//   user: string | null;
-//   date?: Date;
-// }
-
 export interface Question {
   question: string;
   author: string | null;
@@ -34,13 +27,15 @@ export interface Question {
 }
 
 export interface Post {
+  id: string;
   question: Question;
   answer: string;
   photo: string | null;
-  likes: Liker[];
+  likes: Like[];
   date: Date;
 }
 
-export interface Liker {
-  author: string;
+export interface Like {
+  postId: string;
+  author: Follower;
 }
