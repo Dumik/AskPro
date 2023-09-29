@@ -8,7 +8,6 @@ import * as Yup from 'yup';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useAppDispatch} from '../app/hooks';
 import {login} from '../features/auth/authSlice';
-import auth from '@react-native-firebase/auth';
 
 const validationSchema = Yup.object().shape({
   login: Yup.string()

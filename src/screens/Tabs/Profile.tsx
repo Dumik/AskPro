@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 
 import {Box, Button, ScrollView} from '../../legos';
 import {Header} from './Header';
@@ -9,8 +9,15 @@ import {HeroProfile} from '../../components/HeroProfile';
 import {useAppDispatch} from '../../app/hooks';
 import {Screens} from '../../navigation';
 import {logout} from '../../features/auth/authSlice';
+import {QuestionModal} from '../../components/QuestionModal';
 
 export const ProfileScreen: FC<ScreenProps> = ({navigation}) => {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsOpenModal(true);
+  };
+
   const dispatch = useAppDispatch();
   const handleLogout = () => {
     dispatch(logout());
@@ -18,7 +25,7 @@ export const ProfileScreen: FC<ScreenProps> = ({navigation}) => {
   };
 
   return (
-    <Box height="100%" width={'100%'} backgroundColor="white">
+    <Box height="100%" width="100%" backgroundColor="white">
       <ScrollView
         stickyHeaderIndices={[0]}
         showsVerticalScrollIndicator={false}>
@@ -33,7 +40,10 @@ export const ProfileScreen: FC<ScreenProps> = ({navigation}) => {
         <ProfileStatistic answers={168} likes={582} gifts={20} followers={56} />
         <Box width="100%" alignItems="center" paddingTop={24}>
           <Box width="80%">
-            <Button title="Ask me a Question" onPress={() => {}} />
+            <Button
+              title="Ask me a Question"
+              onPress={() => handleOpenModal()}
+            />
           </Box>
         </Box>
         <Post
@@ -65,6 +75,10 @@ export const ProfileScreen: FC<ScreenProps> = ({navigation}) => {
           author="Dumik"
         />
       </ScrollView>
+      <QuestionModal
+        isOpen={isOpenModal}
+        onClose={() => setIsOpenModal(false)}
+      />
     </Box>
   );
 };

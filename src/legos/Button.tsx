@@ -1,5 +1,5 @@
 import {Text, Pressable, PressableProps} from 'react-native';
-import React from 'react';
+import React, {ReactNode} from 'react';
 
 import {Box} from '../legos';
 import {ColorType, theme} from '../utils';
@@ -9,9 +9,10 @@ export interface ButtonProps extends PressableProps {
   width?: number | string;
   title: string;
   bgColor?: ColorType;
-  type?: 'background' | 'text' | undefined;
+  type?: 'background' | 'text' | 'icon' | undefined;
   textDecorationLine?: 'underline' | 'none';
   colorTitle?: ColorType;
+  icon?: () => ReactNode;
 }
 
 export const Button = ({
@@ -22,7 +23,16 @@ export const Button = ({
   type = 'background',
   textDecorationLine = 'none',
   colorTitle,
+  icon,
+  ...props
 }: ButtonProps) => {
+  if (type === 'icon') {
+    return (
+      <Pressable onPress={onPress}>
+        <Box width={width}>{icon?.()}</Box>
+      </Pressable>
+    );
+  }
   if (type === 'text') {
     return (
       <Pressable onPress={onPress}>
@@ -47,6 +57,7 @@ export const Button = ({
       style={{
         backgroundColor: theme.colors[bgColor || 'btnLime'],
         borderRadius: 5,
+        ...props,
       }}>
       <Box
         width={width}
