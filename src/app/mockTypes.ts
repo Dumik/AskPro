@@ -4,14 +4,13 @@ export interface User {
   username: string;
   email: string;
   avatar: string;
-  bfPhoto: string;
+  bgPhoto: string;
   followers: number;
   gifts: number;
   likes: number;
   questions: Question[];
   posts: Post[];
   following: Follower[];
-  myAnswers: Answer[];
 }
 
 export interface Follower {
@@ -20,15 +19,18 @@ export interface Follower {
   avatar: string;
 }
 
-export interface Answer {
-  question: string;
-  answer: string;
-  user: string | null;
-}
+// export interface Answer {
+//   question: string;
+//   answer: string;
+//   user: string | null;
+//   date?: Date;
+// }
 
 export interface Question {
   question: string;
   author: string | null;
+  date?: Date;
+  avatar?: string | null;
 }
 
 export interface Post {

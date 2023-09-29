@@ -1,16 +1,13 @@
 import React, {FC, useEffect, useState} from 'react';
 import {Modal, Switch, TextInput} from 'react-native';
+
+import {theme} from '../utils';
+import {Question} from '../app/mockTypes';
 import {Box, Button, Text} from '../legos';
+import {useAppDispatch} from '../app/hooks';
 import {CloseIcon} from '../legos/icons/CloseIcon';
 import {AddPhotoIcon} from '../legos/icons/AddPhotoIcon';
-import {theme} from '../utils';
-import {
-  ImageLibraryOptions,
-  launchImageLibrary,
-} from 'react-native-image-picker';
-import {useAppDispatch} from '../app/hooks';
 import {questions} from '../features/questions/questionsSlice';
-import {Question} from '../app/mockTypes';
 
 type QuestionModalProps = {
   isOpen: boolean;
@@ -22,32 +19,11 @@ export const QuestionModal: FC<QuestionModalProps> = ({isOpen, onClose}) => {
   const [text, setText] = useState('');
   const [limitText, setLimitText] = useState(300);
   const [isEnabled, setIsEnabled] = useState(true);
-  const [selectedImage, setSelectedImage] = useState('');
   useEffect(() => {
     setLimitText(300 - text.length);
   }, [text.length]);
 
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
-  const openImagePicker = () => {
-    const options: ImageLibraryOptions = {
-      mediaType: 'photo',
-      includeBase64: false,
-      maxHeight: 2000,
-      maxWidth: 2000,
-    };
-
-    launchImageLibrary(options, response => {
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.errorMessage) {
-        console.log('Image picker error: ', response.errorMessage);
-      } else {
-        let imageUri = response.assets?.[0]?.uri || '';
-        setSelectedImage(imageUri);
-      }
-    });
-  };
 
   const handlerSendQuestion = async () => {
     const data: Question = {
