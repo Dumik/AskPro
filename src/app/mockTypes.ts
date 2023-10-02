@@ -33,6 +33,11 @@ export interface Post {
   photo: string | null;
   likes: Like[];
   date: Date;
+  // author: {
+  //   id: string;
+  //   username: string;
+  //   avatar: string;
+  // };
 }
 
 export interface Like {

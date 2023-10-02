@@ -1,15 +1,13 @@
-// usersSlice.ts
-
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {User, Question, Post, Follower, Like} from '../../app/mockTypes';
-import {users} from '../../app/mock';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { User, Question, Post, Follower, Like } from '../../app/mockTypes';
+import { users } from '../../app/mock';
 
 interface UsersState {
   users: User[];
 }
 
 const initialState: UsersState = {
-  users: [],
+  users: users || [],
 };
 
 const usersSlice = createSlice({
@@ -19,14 +17,7 @@ const usersSlice = createSlice({
     setUsers: (state, action: PayloadAction<User[]>) => {
       state.users = action.payload;
     },
-    getUserById: (state, action: PayloadAction<string>) => {
-      const userId = action.payload;
-      const user = users.find(u => u.id === userId);
-      if (user) {
-        // Обновите state.users данными о пользователе из моковых данных
-        state.users = [...state.users.filter(u => u.id !== userId), user];
-      }
-    },
+
     followUser: (state, action: PayloadAction<string>) => {
       const userIdToFollow = action.payload;
       const userToFollow = state.users.find(user => user.id === userIdToFollow);
@@ -47,9 +38,9 @@ const usersSlice = createSlice({
     },
     addLikeToUserPost: (
       state,
-      action: PayloadAction<{userId: string; postId: string}>,
+      action: PayloadAction<{ userId: string; postId: string }>,
     ) => {
-      const {userId, postId} = action.payload;
+      const { userId, postId } = action.payload;
       const user = state.users.find(user => user.id === userId);
       if (user) {
         // Реализуйте логику добавления лайка к посту пользователя
@@ -58,9 +49,9 @@ const usersSlice = createSlice({
     },
     removeLikeFromUserPost: (
       state,
-      action: PayloadAction<{userId: string; postId: string}>,
+      action: PayloadAction<{ userId: string; postId: string }>,
     ) => {
-      const {userId, postId} = action.payload;
+      const { userId, postId } = action.payload;
       const user = state.users.find(user => user.id === userId);
       if (user) {
         // Реализуйте логику удаления лайка с поста пользователя
@@ -69,29 +60,25 @@ const usersSlice = createSlice({
     },
     askQuestionToUser: (
       state,
-      action: PayloadAction<{userId: string; question: Question}>,
+      action: PayloadAction<{ userId: string; question: Question }>,
     ) => {
-      const {userId, question} = action.payload;
+      const { userId, question } = action.payload;
       const user = state.users.find(user => user.id === userId);
       if (user) {
         // Реализуйте логику отправки вопроса другому пользователю
         // user можно использовать для получения данных о пользователе, которому отправляем вопрос
       }
     },
-    getAllPostsOfUsers: state => {
-      // Здесь можно реализовать запрос на получение всех постов всех пользователей и обновление данных в state.users
-    },
   },
 });
 
 export const {
   setUsers,
-  getUserById,
+  // getUserById,
   followUser,
   unfollowUser,
   addLikeToUserPost,
   removeLikeFromUserPost,
   askQuestionToUser,
-  getAllPostsOfUsers,
 } = usersSlice.actions;
 export default usersSlice.reducer;
