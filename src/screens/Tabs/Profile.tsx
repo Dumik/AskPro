@@ -15,7 +15,7 @@ import { useUserById } from '../../features/users/userSelectors';
 export const ProfileScreen: FC<ScreenProps> = ({ navigation }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  const user = useUserById('3');
+  const user = useUserById('1');
 
   const handleOpenModal = () => {
     setIsOpenModal(true);
@@ -26,7 +26,7 @@ export const ProfileScreen: FC<ScreenProps> = ({ navigation }) => {
     dispatch(logout());
     navigation.navigate(Screens.SignIn);
   };
-
+  console.log('%c jordan user', 'color: lime;', user);
   return (
     <Box height="100%" width="100%" backgroundColor="white">
       <Header title="Profile" handleLogout={handleLogout} />
@@ -52,23 +52,25 @@ export const ProfileScreen: FC<ScreenProps> = ({ navigation }) => {
             />
           </Box>
         </Box>
-        {user?.posts.map(item => (
-          <Post
-            key={`${item.id}-${item.date}-${item.question}`}
-            answer={item.answer || ''}
-            date={item.date}
-            likes={item.likes}
-            photo={item.photo}
-            id={item.id}
-            question={item.question}
-            user={{
-              avatar: user?.avatar || '',
-              id: user?.id || '',
-              username: user?.username || '',
-            }}
-            isMyPost={true}
-          />
-        ))}
+        <Box paddingTop={8}>
+          {user?.posts.map((item, index) => (
+            <Post
+              key={`${item.id}-${item.date}-${index}`}
+              answer={item.answer || ''}
+              date={item.date}
+              likes={item.likes}
+              photo={item.photo}
+              id={item.id}
+              question={item.question}
+              user={{
+                avatar: user?.avatar || '',
+                id: user?.id || '',
+                username: user?.username || '',
+              }}
+              isMyPost={true}
+            />
+          ))}
+        </Box>
       </ScrollView>
       <QuestionModal
         isOpen={isOpenModal}

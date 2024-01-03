@@ -22,7 +22,7 @@ export interface Follower {
 export interface Question {
   question: string;
   author: string | null;
-  date?: Date;
+  date?: Date | string;
   avatar?: string | null;
 }
 
@@ -32,15 +32,10 @@ export interface Post {
   answer: string;
   photo: string | null;
   likes: Like[];
-  date: Date;
-  // author: {
-  //   id: string;
-  //   username: string;
-  //   avatar: string;
-  // };
+  date: Date | string;
 }
 
 export interface Like {
   postId: string;
-  author: Follower;
+  userId: string;
 }

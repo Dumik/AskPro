@@ -1,13 +1,13 @@
-import {Text} from 'react-native';
-import React, {FC} from 'react';
+import { Text } from 'react-native';
+import React, { FC } from 'react';
 
-import {Screens, RootStackParamList} from '../navigation';
-import {Box, Button, Input, ScrollView, Logo} from '../legos';
-import {Formik} from 'formik';
+import { Screens, RootStackParamList } from '../navigation';
+import { Box, Button, Input, ScrollView, Logo } from '../legos';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {useAppDispatch} from '../app/hooks';
-import {login} from '../features/auth/authSlice';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { useAppDispatch } from '../app/hooks';
+import { login } from '../features/auth/authSlice';
 
 const validationSchema = Yup.object().shape({
   login: Yup.string()
@@ -30,7 +30,7 @@ interface ScreenProps {
   navigation: ScreenNavigationProp;
 }
 
-export const SignInScreen: FC<ScreenProps> = ({navigation}) => {
+export const SignInScreen: FC<ScreenProps> = ({ navigation }) => {
   const dispatch = useAppDispatch();
 
   const onSubmit = async ({
@@ -60,7 +60,7 @@ export const SignInScreen: FC<ScreenProps> = ({navigation}) => {
           initialValues={initialValuesForm}
           onSubmit={onSubmit}
           validationSchema={validationSchema}>
-          {({handleChange, values, errors, touched, handleSubmit}) => (
+          {({ handleChange, values, errors, touched, handleSubmit }) => (
             <>
               <Box
                 flexDirection="row"
@@ -114,7 +114,7 @@ export const SignInScreen: FC<ScreenProps> = ({navigation}) => {
           justifyContent="center"
           paddingVertical={16}
           width={300}>
-          <Text style={{marginRight: 4, color: 'white'}}>
+          <Text style={{ marginRight: 4, color: 'white' }}>
             Don`t you have an account?
           </Text>
           <Button

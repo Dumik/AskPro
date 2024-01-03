@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User, Question, Post, Follower, Like } from '../../app/mockTypes';
+import { User, Question } from '../../app/mockTypes';
 import { users } from '../../app/mock';
 
 interface UsersState {
@@ -38,13 +38,24 @@ const usersSlice = createSlice({
     },
     addLikeToUserPost: (
       state,
-      action: PayloadAction<{ userId: string; postId: string }>,
+      action: PayloadAction<{
+        userId: string;
+        postId: string;
+        likerId: string;
+      }>,
     ) => {
-      const { userId, postId } = action.payload;
+      const { userId, postId, likerId } = action.payload;
       const user = state.users.find(user => user.id === userId);
       if (user) {
-        // Реализуйте логику добавления лайка к посту пользователя
-        // user можно использовать для получения данных о пользователе, чей пост лайкаем
+        const post = user.posts.find(post => post.id === postId);
+        if (post) {
+          const isLiked = post.likes.some(like => like.userId === likerId);
+          if (isLiked) {
+            console.log('%c jordan remove like', isLiked, post.likes);
+          } else {
+            console.log('%c jordan add like', isLiked, post.likes);
+          }
+        }
       }
     },
     removeLikeFromUserPost: (
@@ -74,7 +85,6 @@ const usersSlice = createSlice({
 
 export const {
   setUsers,
-  // getUserById,
   followUser,
   unfollowUser,
   addLikeToUserPost,

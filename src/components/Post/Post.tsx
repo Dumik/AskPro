@@ -27,6 +27,8 @@ import {
 import { Post as PostType } from '../../app/mockTypes';
 import { calculateDateDifference } from '../../utils/calculateDateDifference';
 import { DotsIcon } from '../../legos/icons/DotsIcon';
+import { useAppDispatch } from '../../app/hooks';
+import { addLikeToUserPost } from '../../features/users/usersSlice';
 
 export const Post: FC<
   PostType & {
@@ -38,7 +40,9 @@ export const Post: FC<
     isMyPost?: boolean;
   }
 > = ({ id, question, answer, photo, likes, date, user, isMyPost }) => {
+  const dispatch = useAppDispatch();
   const isUseCollapsed = answer.length <= 300;
+
   const [isLiked, setIsLiked] = useState(false);
   const [expanded, setExpanded] = useState(isUseCollapsed);
   const [height, setHeight] = useState(isUseCollapsed ? 120 : 100);
@@ -50,6 +54,7 @@ export const Post: FC<
 
   const handleLike = () => {
     setIsLiked(!isLiked);
+    dispatch(addLikeToUserPost({ userId: user.id, postId: id, likerId: '1' }));
   };
 
   const onItemPress = () => {

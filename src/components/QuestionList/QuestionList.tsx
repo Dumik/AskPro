@@ -1,14 +1,14 @@
-import React, {FC} from 'react';
-import {Box} from '../../legos';
-import {Question} from '../../app/mockTypes';
-import {Text} from '../../legos'; // Import Text from the correct package
-import {format} from 'date-fns';
+import React, { FC } from 'react';
+import { Box } from '../../legos';
+import { Question } from '../../app/mockTypes';
+import { Text } from '../../legos'; // Import Text from the correct package
+import { format } from 'date-fns';
 
 type QuestionListProps = {
   item: Question;
 };
 
-export const QuestionList: FC<QuestionListProps> = ({item}) => {
+export const QuestionList: FC<QuestionListProps> = ({ item }) => {
   const date = new Date();
   return (
     <Box flexDirection="row" alignItems="center" paddingVertical={16}>

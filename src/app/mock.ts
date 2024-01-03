@@ -15,26 +15,47 @@ export const users: User[] = [
       {
         question: 'question',
         author: 'Oleg',
-        date: new Date('2023-12-9'),
+        date: new Date('2023-12-9').toISOString(),
       },
       {
         question: 'How sre you',
         author: null,
-        date: new Date('2023-12-2'),
+        date: new Date('2023-12-2').toISOString(),
       },
     ],
     posts: [
+      {
+        id: '29',
+        question: {
+          question: 'Were are you from?',
+          author: 'Oleg',
+          date: new Date('2023-12-9').toISOString(),
+        },
+        answer: 'Lviv, best city',
+        photo: 'https://picsum.photos/id/670/150',
+        likes: [
+          {
+            postId: '29',
+            userId: '2',
+          },
+          {
+            postId: '29',
+            userId: '3',
+          },
+        ],
+        date: new Date('2023-9-29').toISOString(),
+      },
       {
         id: '2',
         question: {
           question: 'question',
           author: 'Oleg',
-          date: new Date('2023-12-9'),
+          date: new Date('2023-12-9').toISOString(),
         },
-        answer: '',
+        answer: 'text text text text text text text text text text',
         photo: '',
         likes: [],
-        date: new Date('2023-9-29'),
+        date: new Date('2023-9-29').toISOString(),
       },
     ],
     following: [
@@ -60,7 +81,7 @@ export const users: User[] = [
       {
         question: 'How sre you, dude?',
         author: null,
-        date: new Date('2023-12-2'),
+        date: new Date('2023-12-2').toISOString(),
       },
     ],
     posts: [
@@ -69,12 +90,12 @@ export const users: User[] = [
         question: {
           question: 'question',
           author: 'Oleg',
-          date: new Date('2023-12-9'),
+          date: new Date('2023-10-9').toISOString(),
         },
         answer: 'text',
         photo: 'https://picsum.photos/id/659/500/900',
         likes: [],
-        date: new Date('2023-9-29'),
+        date: new Date('2023-9-29').toISOString(),
       },
     ],
     following: [
@@ -99,7 +120,7 @@ export const users: User[] = [
       {
         question: 'How sre you',
         author: null,
-        date: new Date('2023-12-2'),
+        date: new Date('2023-12-2').toISOString(),
       },
     ],
     posts: [
@@ -109,7 +130,7 @@ export const users: User[] = [
         question: {
           question: 'Что тебя неизменно радует?',
           author: 'Oleg',
-          date: new Date('2023-12-9'),
+          date: new Date('2023-12-9').toISOString(),
         },
         answer:
           'Всё, что происходит сейчас, когда-нибудь пройдет. Любые жизненные катаклизмы, омрачающие сегодняшний день, когда-нибудь останутся только блеклым воспоминанием в пучине нашей памяти. Катастрофа сегодня — жизненный опыт завтра. Эмоции утихнут, боль пройдет, пустота заполнится. Мы всегда найдем выход из ситуации, какой бы сложной она не была. Мы так устроены. Так устроена наша психика — искать свет среди тьмы. Мы, как цветы, тянемся к солнцу. Верим в лучшее, часто без всяких на то оснований, и живем, неизменно живем…  Этот свет внутри нас, эта яркая искра, тлеющая даже в самые темные времена, — свидетельство того, что мы созданы для чего-то незыблемого и вечного, для необъятного счастья. Ты понимаешь это, как, наверное, и каждый из нас, хоть иногда и боишься себе в этом признаться. Думаешь, это слишком грандиозно, слишком прекрасно, чтобы быть правдой. Боишься вопросов и еще больше ответов на них. Но они есть. И они всё объясняют. С необычайной точностью и естественностью, оставляя страх и сомнения позади. Даря радость и уверенность в будущем, смысл сегодняшнему дню. …Впереди прекрасное время — время, когда люди «насладятся обилием мира» и «дети, которые у них родятся, не будут страдать». Когда «немой будет радостно восклицать», а «хромой будет скакать, как олень». Когда никто из живущих «не будет трудиться напрасно». Время, когда «то, что было прежде, больше не вспомнится и не будет тяготить сердце».',
@@ -117,15 +138,11 @@ export const users: User[] = [
           'https://cpad.ask.fm/b9f/c0411/73db/4ddc/b961/1888b8aa8735/large/229728.jpg',
         likes: [
           {
-            author: {
-              id: '1',
-              username: 'Oleg',
-              avatar: 'https://picsum.photos/id/258/500/900',
-            },
+            userId: '1',
             postId: '20',
           },
         ],
-        date: new Date('2023-9-3'),
+        date: new Date('2023-9-3').toISOString(),
       },
     ],
     following: [
