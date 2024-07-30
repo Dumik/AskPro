@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 
-import {Screens} from './types';
+import { Screens } from './types';
 
 import {
   HomeScreen,
@@ -12,10 +12,10 @@ import {
   ProfileScreen,
   QuestionsScreen,
 } from '../screens';
-import {QuestionsIcon, HomeIcon, FriendsIcon, ProfileIcon} from '../legos';
-import {theme} from '../utils';
+import { QuestionsIcon, HomeIcon, FriendsIcon, ProfileIcon } from '../legos';
+import { theme } from '../utils';
 import TabBar from './TabBar';
-import {ScreenProps} from '../screens/types';
+import { ScreenProps } from '../screens/types';
 
 type IconTabsProps = {
   focused?: boolean;
@@ -35,7 +35,7 @@ const tabs: TabsProps[] = [
     name: Screens.Home,
     label: 'Home',
     component: HomeScreen,
-    tabBarIcon: ({size, focused}: IconTabsProps) => (
+    tabBarIcon: ({ size, focused }: IconTabsProps) => (
       <HomeIcon
         color={focused ? theme.colors.mainBlue : theme.colors.grayDark}
         size={size}
@@ -46,7 +46,7 @@ const tabs: TabsProps[] = [
     name: Screens.Questions,
     label: 'Questions',
     component: QuestionsScreen,
-    tabBarIcon: ({size, focused}: IconTabsProps) => (
+    tabBarIcon: ({ size, focused }: IconTabsProps) => (
       <QuestionsIcon
         color={focused ? theme.colors.mainBlue : theme.colors.grayDark}
         size={size}
@@ -57,7 +57,7 @@ const tabs: TabsProps[] = [
     name: Screens.Friends,
     label: 'Friends',
     component: FriendsScreen,
-    tabBarIcon: ({size, focused}: IconTabsProps) => (
+    tabBarIcon: ({ size, focused }: IconTabsProps) => (
       <FriendsIcon
         color={focused ? theme.colors.mainBlue : theme.colors.grayDark}
         size={size}
@@ -68,7 +68,7 @@ const tabs: TabsProps[] = [
     name: Screens.Profile,
     label: 'Profile',
     component: ProfileScreen,
-    tabBarIcon: ({size, focused}: IconTabsProps) => (
+    tabBarIcon: ({ size, focused }: IconTabsProps) => (
       <ProfileIcon
         color={focused ? theme.colors.mainBlue : theme.colors.grayDark}
         size={size}
@@ -102,7 +102,7 @@ export const Tabs = () => {
     <Tab.Navigator
       screenOptions={screenOptions}
       tabBar={props => <TabBar {...props} tabs={tabs} />}>
-      {tabs.map(({name, component, label}, index) => {
+      {tabs.map(({ name, component, label }, index) => {
         return (
           <Tab.Screen
             key={index}

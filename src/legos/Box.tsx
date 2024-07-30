@@ -1,7 +1,7 @@
-import React, {FC} from 'react';
-import {View, ViewProps} from 'react-native';
+import React, { FC } from 'react';
+import { View, ViewProps } from 'react-native';
 import styled from 'styled-components';
-import {ColorType, parseStyledSize, theme} from '../utils';
+import { ColorType, parseStyledSize, theme } from '../utils';
 
 export interface BoxProps extends ViewProps {
   justifyContent?:
@@ -145,58 +145,76 @@ const StyledBox = styled(View)<BoxProps>`
     ${borderTopWidth ? `border-top-width: ${borderTopWidth}px` : ''};
     ${marginLeft ? `margin-left: ${parseStyledSize(marginLeft)}` : ''};
     ${
-      (paddingTop || paddingVertical) ?
-      `padding-top: ${parseStyledSize(paddingTop || paddingVertical || 0)}` : ''
+      paddingTop || paddingVertical
+        ? `padding-top: ${parseStyledSize(paddingTop || paddingVertical || 0)}`
+        : ''
     };
     ${borderLeftWidth ? `border-left-width: ${borderLeftWidth}px` : ''};
     ${
-      (paddingLeft || paddingHorizontal) ?
-      `padding-left: ${parseStyledSize(paddingLeft || paddingHorizontal || 0)}` : ''
+      paddingLeft || paddingHorizontal
+        ? `padding-left: ${parseStyledSize(
+            paddingLeft || paddingHorizontal || 0,
+          )}`
+        : ''
     };
     ${marginRight ? `margin-right: ${parseStyledSize(marginRight)}` : ''};
     ${borderRightWidth ? `border-right-width: ${borderRightWidth}px` : ''};
     ${
-      (paddingRight || paddingHorizontal) ?
-      `padding-right: ${parseStyledSize(
-        paddingRight || paddingHorizontal || 0,
-      )}` : ''
+      paddingRight || paddingHorizontal
+        ? `padding-right: ${parseStyledSize(
+            paddingRight || paddingHorizontal || 0,
+          )}`
+        : ''
     };
     ${marginBottom ? `margin-bottom: ${parseStyledSize(marginBottom)}` : ''};
     ${borderRadius ? `border-radius: ${parseStyledSize(borderRadius)}` : ''};
     ${minHeight ? `min-height: ${parseStyledSize(minHeight)}` : ''};
     ${borderBottomWidth ? `border-bottom-width: ${borderBottomWidth}px` : ''};
     ${
-      (paddingBottom || paddingVertical) ?
-      `padding-bottom: ${parseStyledSize(
-        paddingBottom || paddingVertical || 0,
-      )}` : ''
+      paddingBottom || paddingVertical
+        ? `padding-bottom: ${parseStyledSize(
+            paddingBottom || paddingVertical || 0,
+          )}`
+        : ''
     };
     ${
-      borderBottomLeftRadius ?
-      `border-bottom-left-radius: ${borderBottomLeftRadius}px` : ''
+      borderBottomLeftRadius
+        ? `border-bottom-left-radius: ${borderBottomLeftRadius}px`
+        : ''
     };
     ${
-      borderBottomRightRadius ?
-      `border-bottom-right-radius: ${borderBottomRightRadius}px` : ''
+      borderBottomRightRadius
+        ? `border-bottom-right-radius: ${borderBottomRightRadius}px`
+        : ''
     };
     ${
-      backgroundColor ?
-      `background-color: ${theme.colors[backgroundColor] || backgroundColor}` : ''
+      backgroundColor
+        ? `background-color: ${
+            theme.colors[backgroundColor] || backgroundColor
+          }`
+        : ''
     };
     ${
-      borderTopLeftRadius ? `border-top-left-radius: ${borderTopLeftRadius}px` : ''
+      borderTopLeftRadius
+        ? `border-top-left-radius: ${borderTopLeftRadius}px`
+        : ''
     };
     ${
-      shadowColor ? `shadow-color: ${theme.colors[shadowColor] || shadowColor}` : ''
+      shadowColor
+        ? `shadow-color: ${theme.colors[shadowColor] || shadowColor}`
+        : ''
     };
     ${
-      borderColor ? `border-color: ${theme.colors[borderColor] || borderColor}` : ''
+      borderColor
+        ? `border-color: ${theme.colors[borderColor] || borderColor}`
+        : ''
     };
     ${
-      borderTopRightRadius ? `border-top-right-radius: ${borderTopRightRadius}px` : ''
+      borderTopRightRadius
+        ? `border-top-right-radius: ${borderTopRightRadius}px`
+        : ''
     };
     `}
 `;
-
 
 export const Box: FC<BoxProps> = props => <StyledBox {...props} />;

@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
-import {Text, Box} from '../../legos';
-import {Header} from './Header';
-import {ScreenProps} from '../types';
+import { Text, Box } from '../../legos';
+import { Header } from './Header';
+import { ScreenProps } from '../types';
 
 export const FriendsScreen: FC<ScreenProps> = () => {
   return (

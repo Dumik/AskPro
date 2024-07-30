@@ -1,5 +1,5 @@
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
-import React, {useCallback, useEffect, useRef} from 'react';
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import React, { useCallback, useEffect, useRef } from 'react';
 import {
   View,
   TouchableWithoutFeedback,
@@ -7,14 +7,14 @@ import {
   Dimensions,
 } from 'react-native';
 
-import {TabsProps} from './Tabs';
+import { TabsProps } from './Tabs';
 import {
   AnimatedView,
   AnimatedWrapper,
   Container,
   InnerView,
 } from './TabBarStyles';
-import {theme} from '../utils';
+import { theme } from '../utils';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -24,7 +24,7 @@ type Props = BottomTabBarProps & {
   tabs: TabsProps[];
 };
 
-const TabBar = ({state, descriptors, navigation, tabs}: Props) => {
+const TabBar = ({ state, descriptors, navigation, tabs }: Props) => {
   const animationHorizontalValue = useRef(new Animated.Value(0)).current;
 
   const animate = useCallback(
@@ -47,15 +47,15 @@ const TabBar = ({state, descriptors, navigation, tabs}: Props) => {
         <AnimatedView
           style={[
             {
-              transform: [{translateX: animationHorizontalValue}],
+              transform: [{ translateX: animationHorizontalValue }],
             },
           ]}
         />
       </AnimatedWrapper>
 
-      <View style={{flexDirection: 'row'}}>
+      <View style={{ flexDirection: 'row' }}>
         {state.routes.map((route, index) => {
-          const {options} = descriptors[route.key];
+          const { options } = descriptors[route.key];
           const isFocused = state.index === index;
           const renderIcon = tabs[index]?.tabBarIcon;
 
@@ -81,7 +81,7 @@ const TabBar = ({state, descriptors, navigation, tabs}: Props) => {
           return (
             <TouchableWithoutFeedback
               accessibilityRole="button"
-              accessibilityState={isFocused ? {selected: true} : {}}
+              accessibilityState={isFocused ? { selected: true } : {}}
               accessibilityLabel={options.tabBarAccessibilityLabel}
               testID={options.tabBarTestID}
               onPress={onPress}

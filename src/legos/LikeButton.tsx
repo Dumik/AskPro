@@ -1,12 +1,12 @@
-import React, {FC} from 'react';
-import {TouchableWithoutFeedback, StyleSheet} from 'react-native';
+import React, { FC } from 'react';
+import { TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
 } from 'react-native-reanimated';
-import {LikeIcon} from './icons';
-import {Text} from './Text';
+import { LikeIcon } from './icons';
+import { Text } from './Text';
 
 type LikeButtonProps = {
   isLiked: boolean;
@@ -23,7 +23,7 @@ export const LikeButton: FC<LikeButtonProps> = ({
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{scale: scale.value}],
+      transform: [{ scale: scale.value }],
     };
   });
 
@@ -40,7 +40,7 @@ export const LikeButton: FC<LikeButtonProps> = ({
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
       <Animated.View style={[styles.container, animatedStyle]}>
-        <Text style={{paddingHorizontal: 4}}>{likeCount}</Text>
+        <Text style={{ paddingHorizontal: 4 }}>{likeCount}</Text>
         <LikeIcon
           name={isLiked ? 'heart' : 'heart-o'}
           size={24}

@@ -62,8 +62,7 @@ export const ScrollView: FC<Props> = ({
         paddingRight || paddingHorizontal
           ? normalize(paddingRight || paddingHorizontal || 0)
           : 0,
-    }}
-  >
+    }}>
     {children}
   </StyledScrollView>
 );

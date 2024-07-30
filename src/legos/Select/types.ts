@@ -1,5 +1,5 @@
-import {BoxProps} from 'legos';
-import {ColorType} from 'utils';
+import { BoxProps } from 'legos';
+import { ColorType } from 'utils';
 
 export interface SelectProps {
   label?: string;

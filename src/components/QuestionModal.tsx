@@ -1,20 +1,20 @@
-import React, {FC, useEffect, useState} from 'react';
-import {Modal, Switch, TextInput} from 'react-native';
+import React, { FC, useEffect, useState } from 'react';
+import { Modal, Switch, TextInput } from 'react-native';
 
-import {theme} from '../utils';
-import {Question} from '../app/mockTypes';
-import {Box, Button, Text} from '../legos';
-import {useAppDispatch} from '../app/hooks';
-import {CloseIcon} from '../legos/icons/CloseIcon';
-import {AddPhotoIcon} from '../legos/icons/AddPhotoIcon';
-import {questions} from '../features/questions/questionsSlice';
+import { theme } from '../utils';
+import { Question } from '../app/mockTypes';
+import { Box, Button, Text } from '../legos';
+import { useAppDispatch } from '../app/hooks';
+import { CloseIcon } from '../legos/icons/CloseIcon';
+import { AddPhotoIcon } from '../legos/icons/AddPhotoIcon';
+import { questions } from '../features/questions/questionsSlice';
 
 type QuestionModalProps = {
   isOpen: boolean;
   onClose: () => void;
 };
 
-export const QuestionModal: FC<QuestionModalProps> = ({isOpen, onClose}) => {
+export const QuestionModal: FC<QuestionModalProps> = ({ isOpen, onClose }) => {
   const dispatch = useAppDispatch();
   const [text, setText] = useState('');
   const [limitText, setLimitText] = useState(300);
@@ -103,12 +103,12 @@ export const QuestionModal: FC<QuestionModalProps> = ({isOpen, onClose}) => {
                 )}
               />
               <Switch
-                trackColor={{false: '#767577', true: theme.colors.btnLime}}
+                trackColor={{ false: '#767577', true: theme.colors.btnLime }}
                 thumbColor={isEnabled ? theme.colors.primary : '#f4f3f4'}
                 ios_backgroundColor={theme.colors.primary}
                 onValueChange={toggleSwitch}
                 value={isEnabled}
-                style={{transform: [{scaleX: 0.6}, {scaleY: 0.6}]}}
+                style={{ transform: [{ scaleX: 0.6 }, { scaleY: 0.6 }] }}
               />
               <Text fontSize={12} color="primary">
                 Anonymous

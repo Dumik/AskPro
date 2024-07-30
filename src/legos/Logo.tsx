@@ -1,8 +1,14 @@
 import React from 'react';
 
-import Svg, {Path} from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
-export const Logo = ({color, colorFm}: {color?: string; colorFm?: string}) => {
+export const Logo = ({
+  color,
+  colorFm,
+}: {
+  color?: string;
+  colorFm?: string;
+}) => {
   return (
     <Svg width="250" height="75" viewBox="0 84.772 256.003 76.291">
       <Path

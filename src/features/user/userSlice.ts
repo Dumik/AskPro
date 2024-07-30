@@ -1,6 +1,6 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {User, Question, Post, Follower, Like} from '../../app/mockTypes';
-import {users} from '../../app/mock';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { User, Question, Post, Follower, Like } from '../../app/mockTypes';
+import { users } from '../../app/mock';
 
 const initialUser: User = {
   id: '',
@@ -17,14 +17,14 @@ const initialUser: User = {
   following: [],
 };
 
-const initialState = users.find(({id}) => id === '1') || initialUser;
+const initialState = users.find(({ id }) => id === '1') || initialUser;
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
     updateUser: (state, action: PayloadAction<User>) => {
-      return {...state, ...action.payload};
+      return { ...state, ...action.payload };
     },
     addQuestion: (state, action: PayloadAction<Question>) => {
       state.questions.push(action.payload);
@@ -41,7 +41,7 @@ const userSlice = createSlice({
       );
     },
     addLikeToPost: (state, action: PayloadAction<Like>) => {
-      const {postId} = action.payload;
+      const { postId } = action.payload;
       const post = state.posts.find(p => p.id === postId);
       if (post) {
         post.likes.push(action.payload);

@@ -1,6 +1,6 @@
-import React, {FC} from 'react';
-import {Image, ImageBackground} from 'react-native';
-import {Box, Text} from '../legos';
+import React, { FC } from 'react';
+import { Image, ImageBackground } from 'react-native';
+import { Box, Text } from '../legos';
 
 type HeroProfileProps = {
   avatarURL: string;
@@ -18,7 +18,7 @@ export const HeroProfile: FC<HeroProfileProps> = ({
   return (
     <Box height={250}>
       <ImageBackground
-        source={{uri: avatarURL}}
+        source={{ uri: avatarURL }}
         style={{
           width: '100%',
           height: '100%',
@@ -26,11 +26,11 @@ export const HeroProfile: FC<HeroProfileProps> = ({
           justifyContent: 'flex-end',
         }}>
         <Box
-          style={{position: 'relative'}}
+          style={{ position: 'relative' }}
           flexDirection="row"
           justifyContent="space-between">
           <Image
-            source={{uri: backgroundURL}}
+            source={{ uri: backgroundURL }}
             style={{
               left: 10,
               bottom: -60,
@@ -44,11 +44,11 @@ export const HeroProfile: FC<HeroProfileProps> = ({
             <Text
               fontSize={20}
               fontWeight={700}
-              style={{paddingTop: 10}}
+              style={{ paddingTop: 10 }}
               color="white">
               {name}
             </Text>
-            <Text fontSize={18} fontWeight={400} style={{paddingVertical: 5}}>
+            <Text fontSize={18} fontWeight={400} style={{ paddingVertical: 5 }}>
               {username}
             </Text>
           </Box>

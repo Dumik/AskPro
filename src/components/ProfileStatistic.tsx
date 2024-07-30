@@ -1,5 +1,5 @@
-import {Box, Text} from '../legos';
-import React, {FC} from 'react';
+import { Box, Text } from '../legos';
+import React, { FC } from 'react';
 
 type ProfileStatisticProps = {
   answers: number;

@@ -1,8 +1,8 @@
-import {Text, Pressable, PressableProps} from 'react-native';
-import React, {ReactNode} from 'react';
+import { Text, Pressable, PressableProps } from 'react-native';
+import React, { ReactNode } from 'react';
 
-import {Box} from '../legos';
-import {ColorType, theme} from '../utils';
+import { Box } from '../legos';
+import { ColorType, theme } from '../utils';
 
 export interface ButtonProps extends PressableProps {
   onPress: () => void;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Box, LikeIcon, Text} from '../../legos';
-import {Pressable} from 'react-native';
-import {SettingsIcon} from '../../legos/icons/SettingsIcon';
+import { Box, LikeIcon, Text } from '../../legos';
+import { Pressable } from 'react-native';
+import { SettingsIcon } from '../../legos/icons/SettingsIcon';
 
 type HeaderType = {
   isGoBack?: boolean;
@@ -25,7 +25,7 @@ export const Header = ({
       backgroundColor="primary"
       height={100}
       width="100%"
-      style={{position: position, top: 0}}>
+      style={{ position: position, top: 0 }}>
       <Box
         flexDirection="row"
         paddingHorizontal={16}
@@ -40,7 +40,7 @@ export const Header = ({
             <LikeIcon />
           </Pressable>
           {handleLogout ? (
-            <Pressable style={{paddingLeft: 12}} onPress={handleLogout}>
+            <Pressable style={{ paddingLeft: 12 }} onPress={handleLogout}>
               <SettingsIcon size={25} color="white" fill="#274C67" />
             </Pressable>
           ) : null}

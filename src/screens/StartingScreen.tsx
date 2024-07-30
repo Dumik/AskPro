@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
-import {Screens, RootStackParamList} from '../navigation';
-import {Box, Button} from '../legos';
-import {Logo} from '../legos';
-import {StackNavigationProp} from '@react-navigation/stack';
+import { Screens, RootStackParamList } from '../navigation';
+import { Box, Button } from '../legos';
+import { Logo } from '../legos';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 type ScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -14,7 +14,7 @@ interface ScreenProps {
   navigation: ScreenNavigationProp;
 }
 
-export const StartingScreen: FC<ScreenProps> = ({navigation}) => {
+export const StartingScreen: FC<ScreenProps> = ({ navigation }) => {
   return (
     <Box
       alignItems="center"

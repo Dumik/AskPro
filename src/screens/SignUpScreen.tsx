@@ -1,11 +1,11 @@
-import {TextInputIOSProps} from 'react-native';
-import React, {FC} from 'react';
-import {Formik} from 'formik';
+import { TextInputIOSProps } from 'react-native';
+import React, { FC } from 'react';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-import {Screens, RootStackParamList} from '../navigation';
-import {Box, Button, Input, ScrollView, Logo, Text} from '../legos';
-import {StackNavigationProp} from '@react-navigation/stack';
+import { Screens, RootStackParamList } from '../navigation';
+import { Box, Button, Input, ScrollView, Logo, Text } from '../legos';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 type FieldNameType = 'fullName' | 'username' | 'password';
 
@@ -67,7 +67,7 @@ interface ScreenProps {
   navigation: ScreenNavigationProp;
 }
 
-export const SignUpScreen: FC<ScreenProps> = ({navigation}) => {
+export const SignUpScreen: FC<ScreenProps> = ({ navigation }) => {
   //TODO: Add yup validations
 
   const handlerSubmit = (values: {
@@ -94,10 +94,10 @@ export const SignUpScreen: FC<ScreenProps> = ({navigation}) => {
             initialValues={initialValuesForm}
             onSubmit={handlerSubmit}
             validationSchema={validationSchema}>
-            {({handleChange, values, handleSubmit, errors, touched}) => (
+            {({ handleChange, values, handleSubmit, errors, touched }) => (
               <>
                 {signUpFields.map(
-                  ({component, fieldName, label, placeholder, type}) => {
+                  ({ component, fieldName, label, placeholder, type }) => {
                     return component === 'input' ? (
                       <Box
                         flexDirection="row"
@@ -140,7 +140,7 @@ export const SignUpScreen: FC<ScreenProps> = ({navigation}) => {
           justifyContent="center"
           paddingVertical={16}
           width={300}>
-          <Text style={{marginRight: 8, color: 'white'}}>
+          <Text style={{ marginRight: 8, color: 'white' }}>
             Do you have an account?
           </Text>
           <Button

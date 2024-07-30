@@ -1,9 +1,9 @@
-import {Box} from '../Box';
+import { Box } from '../Box';
 // import { Box } from 'legos/Box';
-import React, {FC, useEffect, useState} from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import RNPickerSelect from 'react-native-picker-select';
 
-import {SelectProps} from './types';
+import { SelectProps } from './types';
 
 export const Select: FC<SelectProps> = ({
   items,
@@ -33,7 +33,7 @@ export const Select: FC<SelectProps> = ({
     <Box
       height={38}
       borderRadius={type === 'outline' ? 4 : 0}
-      {...(type === 'outline' ? {borderWidth: 1} : {borderBottomWidth: 1})}
+      {...(type === 'outline' ? { borderWidth: 1 } : { borderBottomWidth: 1 })}
       borderColor={color}
       marginTop={20}
       {...styleContainer}>

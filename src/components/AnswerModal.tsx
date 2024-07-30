@@ -1,23 +1,23 @@
-import React, {FC, useEffect, useState} from 'react';
-import {Modal, Switch, TextInput} from 'react-native';
-import {Box, Button, Text} from '../legos';
-import {CloseIcon} from '../legos/icons/CloseIcon';
-import {AddPhotoIcon} from '../legos/icons/AddPhotoIcon';
-import {theme} from '../utils';
+import React, { FC, useEffect, useState } from 'react';
+import { Modal, Switch, TextInput } from 'react-native';
+import { Box, Button, Text } from '../legos';
+import { CloseIcon } from '../legos/icons/CloseIcon';
+import { AddPhotoIcon } from '../legos/icons/AddPhotoIcon';
+import { theme } from '../utils';
 import {
   ImageLibraryOptions,
   launchImageLibrary,
 } from 'react-native-image-picker';
-import {useAppDispatch} from '../app/hooks';
-import {questions} from '../features/questions/questionsSlice';
-import {Question} from '../app/mockTypes';
+import { useAppDispatch } from '../app/hooks';
+import { questions } from '../features/questions/questionsSlice';
+import { Question } from '../app/mockTypes';
 
 type AnswerModalProps = {
   isOpen: boolean;
   onClose: () => void;
 };
 
-export const AnswerModal: FC<AnswerModalProps> = ({isOpen, onClose}) => {
+export const AnswerModal: FC<AnswerModalProps> = ({ isOpen, onClose }) => {
   const dispatch = useAppDispatch();
   const [text, setText] = useState('');
   const [limitText, setLimitText] = useState(300);
@@ -126,12 +126,12 @@ export const AnswerModal: FC<AnswerModalProps> = ({isOpen, onClose}) => {
                 )}
               />
               <Switch
-                trackColor={{false: '#767577', true: theme.colors.btnLime}}
+                trackColor={{ false: '#767577', true: theme.colors.btnLime }}
                 thumbColor={isEnabled ? theme.colors.primary : '#f4f3f4'}
                 ios_backgroundColor={theme.colors.primary}
                 onValueChange={toggleSwitch}
                 value={isEnabled}
-                style={{transform: [{scaleX: 0.6}, {scaleY: 0.6}]}}
+                style={{ transform: [{ scaleX: 0.6 }, { scaleY: 0.6 }] }}
               />
               <Text fontSize={12} color="primary">
                 Anonymous

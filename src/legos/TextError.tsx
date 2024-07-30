@@ -1,8 +1,14 @@
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 import React from 'react';
-import {ColorType, theme} from '../utils';
+import { ColorType, theme } from '../utils';
 
-export const TextError = ({text, color}: {text: string; color?: ColorType}) => {
+export const TextError = ({
+  text,
+  color,
+}: {
+  text: string;
+  color?: ColorType;
+}) => {
   return (
     <Text
       style={{

@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {Question} from '../../app/mockTypes';
+import { createSlice } from '@reduxjs/toolkit';
+import { Question } from '../../app/mockTypes';
 
 interface QuestionsState {
   value: Question[];
@@ -28,5 +28,5 @@ const questionsSlice = createSlice({
   },
 });
 
-export const {questions} = questionsSlice.actions;
+export const { questions } = questionsSlice.actions;
 export default questionsSlice.reducer;

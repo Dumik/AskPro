@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
-import {Dimensions, Animated} from 'react-native';
-import {theme} from '../utils';
+import { Dimensions, Animated } from 'react-native';
+import { theme } from '../utils';
 
 const windowWidth = Dimensions.get('window').width;
 

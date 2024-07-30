@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, { FC, useState } from 'react';
 import {
   TextInput,
   TextInputProps,
@@ -6,9 +6,9 @@ import {
   TextInputFocusEventData,
 } from 'react-native';
 
-import {Text} from './Text';
-import {theme} from '../utils';
-import {Box} from './Box';
+import { Text } from './Text';
+import { theme } from '../utils';
+import { Box } from './Box';
 
 type InputType = 'underline' | 'outline';
 
@@ -20,7 +20,7 @@ interface Props extends TextInputProps {
   type?: InputType;
 }
 
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 
 const isIOS = Platform.OS === 'ios';
 
